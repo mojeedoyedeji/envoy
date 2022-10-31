@@ -1,31 +1,20 @@
 <footer class="footer">
-  {% if site.data.social %}
-  <div class="social">
-    {% for social in site.data.social %}
-      <a href="{{ social.url }}" target="_blank">
-        <i class="{{ social.icon | default: 'fas fa-link' }}" title="{{ social.title }}"></i>
-      </a>
+  <div class="footer__copyright">
+    <div class="top">
+      <span>Designed &amp; Developed by</span>
+    </div>
+    <div class="bottom">
+      <span>Brittany Chiang</span>
+      <img class="emoji" src="{{site.baseurl}}/img/emojis/rockon.png" alt="emoji">
+      <span>2018</span>
+    </div>
+  </div>
+  <div class="footer__links">
+    {% for link in site.social %}
+    <a href="{{link.url}}" target="_blank" title="{{link.title}}">
+      <span class="text">{{link.title}}</span>
+      <img src="{{site.baseurl}}/img/social/{{link.title}}.svg" alt="{{link.title}}">
+    </a>
     {% endfor %}
   </div>
-  {% endif %}
-  
-  <div class="columns">
-    <p class="column">
-      &copy; <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: '%Y' }}</time>
-      {%- if site.author -%}
-        &nbsp;<a href="{{ site.author.url }}" target="_blank">{{ site.author.name }}</a>
-      {%- endif -%}. All rights reserved.
-    </p>
-
-    <p class="column">
-      Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> & <a href="https://github.com/vfvong/jekyll-theme-tao" target="_blank">Tao</a>
-    </p>
-
-    {% if site.description %}
-    <p class="column">
-      {{ site.description }}
-    </p>
-    {% endif %}
-  </div>
 </footer>
-  
